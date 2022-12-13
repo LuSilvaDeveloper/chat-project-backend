@@ -1,13 +1,17 @@
 const mongoose = require('mongoose');
 const {isEmail} = require('validator');
 const bcrypt = require('bcrypt');
+const {Schema} = require("mongoose");
 
 /**
  * Creating the Schema for mongodb
  * How should be each variable
  * It looks like a JSON
  */
-const UserSchema = new mongoose.Schema({
+const UserSchema = new Schema({
+    id: {
+        type: String
+    },
     name: {
         type: String,
         required: [false, "No blank"]
