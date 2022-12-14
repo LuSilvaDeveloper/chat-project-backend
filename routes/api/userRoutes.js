@@ -78,13 +78,13 @@ router.get('/credentials/:email', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-    const found = await Users.findOne({id: req.params.id});
+    const found = await Users.find({id: req.params.id});
     console.log(found);
 
     if (found) {
         res.json(found);
     } else {
-        res.status(400).json({msg: `Unable to find User ID: ${req.params.id}`})
+        res.status(404).json({msg: `Unable to find User ID: ${req.params.id}`})
     }
 });
 
